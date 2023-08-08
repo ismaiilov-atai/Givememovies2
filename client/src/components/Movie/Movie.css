@@ -1,0 +1,67 @@
+
+.movie {
+  position: relative;
+  padding: 1vw;
+  max-width: 20vw;
+  margin: 10px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  overflow-wrap: break-word;
+  text-align: center;
+  height: 10vh;
+  width: 100%;
+  margin-left: 5px;
+}
+
+.img {
+  max-height: 70vh;
+}
+
+.noimg {
+  text-decoration: none;
+}
+
+.movieAlone {
+  position: fixed;
+  display: flex;
+  margin: 17vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  height: 75%;
+}
+
+.imgAlone {
+  max-width: 60vw;
+  height: 100%;
+}
+
+.back:hover {
+  background-color: black;
+  color: beige;
+}
+
+.back {
+  margin-top: 10vh;
+  background-color: beige;
+  border-style: none;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.txtdiv {
+  padding: 10vh 10vh 10vw 10vw;
+  color: beige;
+  overflow-y: scroll;
+}
+
+.titleAlone {
+  position: relative;
+}
+
+.year {
+  padding: 10px;
+}

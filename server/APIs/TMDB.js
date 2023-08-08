@@ -1,3 +1,4 @@
+require('dotenv').config()
 const KEY = process.env.TMDB_API_KEY;
 const fetchAI = require('./openai');
 

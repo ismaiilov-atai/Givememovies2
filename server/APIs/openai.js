@@ -1,6 +1,6 @@
 // Get prompt, extract keywords (Actor/director, max runtime, genre...) and return array with these keywords
 // [Lenght(in minutes), Actor, Director, Genre]
-
+require('dotenv').config()
 const API_KEY = process.env.OPENAI_API_KEY
 async function fetchAI(input) {
   const res = await fetch('https://api.openai.com/v1/chat/completions', {

@@ -1,0 +1,27 @@
+
+.prompt {
+  border-radius: 15px;
+  resize: none;
+  padding: 10px;
+  overflow: hidden;
+  height: 7vh;
+  width: 50vw;
+  padding-bottom: 14vh;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.prompt input {
+  padding-top: 20px;
+}
+
+.list {
+  padding-top: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20vh;
+}
+
+.tryagain {
+  padding: 20px;
+}
