@@ -12,30 +12,30 @@ const useMovies = () => {
   async function getMoviesByPrompt(prompt) {
     setIsLoading(true);
     setHasSearched(true);
-    console.log('get Movies Prompt working')
+
     try {
-        const res = await ApiService.getMovies(prompt);
-        if (res && typeof res[0] === 'object') {
-            setMovies(res);
-        } else {
-            setMovies([]);
-        }
-        setError(null);
+      const res = await ApiService.getMovies(prompt);
+      if (res && typeof res[0] === 'object') {
+        setMovies(res);
+      } else {
+        setMovies([]);
+      }
+      setError(null);
     } catch (error) {
-        console.error(`Error fetching movies: ${error}`);
-        setError(error);
+      console.error(`Error fetching movies: ${error}`);
+      setError(error);
     }
+
     setIsLoading(false);
   }
 
-
   async function getMovieByID(id) {
     try {
-        const res = await ApiService.getMovieByID(id);
-        setSelectedMovie(res);
+      const res = await ApiService.getMovieByID(id);
+      setSelectedMovie(res);
     } catch (error) {
-        console.error(`Error fetching movie by ID: ${error}`);
-        setError(error);
+      console.error(`Error fetching movie by ID: ${error}`);
+      setError(error);
     }
   }
 

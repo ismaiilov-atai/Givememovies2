@@ -1,31 +1,34 @@
 import React from 'react';
-import Movie from '../Movie';
 import './MovieList.css';
 
-const MovieList = ({ movies, isLoading, error }) => {
-  console.log(movies)
-  
+const MovieList = ({ movies, getMovieByID, isLoading, error, hasSearched }) => {
+
   if (isLoading) {
-    return <div>Loading...</div>;
+      return <div>Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+      return <div>Error: {error.message}</div>;
   }
 
-  if (!movies || movies.length === 0) {
-    return <div>No movies found.</div>;
+  if (hasSearched && (!movies || movies.length === 0)) {
+      return <div>No movies found.</div>;
   }
 
   return (
-    <div className="list">
-      {movies.map((movie, index) => {
-        console.log("Rendering movie:", movie);
-        return <Movie key={index} {...movie} />;
-      })}
-    </div>
+      <ul className='list'>
+          {movies.map(movie => (
+              <div className='movie' key={movie.id}>
+                  <h3 className='title'>{movie.title}</h3>
+                  {movie.poster_path ? (
+                      <img className='img' onClick={() => getMovieByID(movie.id)} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie poster" />
+                  ) : (
+                      <p className='noimg'>This movie has no poster image</p>
+                  )}
+              </div>
+          ))}
+      </ul>
   );
-
 };
 
 export default MovieList;

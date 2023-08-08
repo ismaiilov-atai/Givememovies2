@@ -7,7 +7,7 @@ function Movie({ movie, deselectMovie }) {
     <div className='movieAlone'>
       <div className='imgdiv'>
         {movie?.poster_path ? (
-          <img className='imgAlone' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie poster" />
+          <img className='img' onClick={deselectMovie} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie poster"></img>
         ) : (
           <p className='noimgAlone'>This movie has no poster image</p>
         )}

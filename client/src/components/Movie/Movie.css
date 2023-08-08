@@ -6,6 +6,7 @@
   margin: 10px;
 }
 
+
 .title {
   display: flex;
   flex-direction: column;
@@ -26,12 +27,25 @@
   text-decoration: none;
 }
 
+.ref {
+  text-decoration: none;
+  text-align: center;
+}
+
 .movieAlone {
   position: fixed;
   display: flex;
-  margin: 17vh;
+  top: 10vh;
+  left: 5vw;
+  right: 5vw;
+  bottom: 10vh;
   background-color: rgba(0, 0, 0, 0.85);
-  height: 75%;
+  overflow-y: auto;
+}
+
+.imgdiv img {
+  max-width: 100%;
+  height: auto;
 }
 
 .imgAlone {
@@ -42,6 +56,10 @@
 .back:hover {
   background-color: black;
   color: beige;
+}
+
+.wrapper {
+  position: relative;
 }
 
 .back {
@@ -60,6 +78,10 @@
 
 .titleAlone {
   position: relative;
+}
+
+.tryagain {
+  padding: 20px;
 }
 
 .year {

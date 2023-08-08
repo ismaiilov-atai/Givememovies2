@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './App.css';
 import MovieList from '../MovieList';
@@ -6,10 +7,13 @@ import useMovies from '../../hooks/useMovies';
 
 function App() {
   const [prompt, setPrompt] = useState('');
+  const [hasSearched, setHasSearched] = useState(false);
+
   const {
     movies,
     selectedMovie,
     getMoviesByPrompt,
+    getMovieByID,
     setSelectedMovie
   } = useMovies();
 
@@ -17,9 +21,11 @@ function App() {
     setPrompt(event.target.value);
   };
 
+
   const handleEnter = async (event) => {
     if (event.key === 'Enter') {
       await getMoviesByPrompt(prompt);
+      setHasSearched(true);
     }
   };
 
@@ -36,8 +42,11 @@ function App() {
           onChange={handlePromptChange}
           onKeyDown={handleEnter}
         />
-        <MovieList movies={movies} />
-        {selectedMovie.id && <Movie movie={selectedMovie} deselectMovie={() => setSelectedMovie({})} />}
+        { selectedMovie.id ?
+          <Movie movie={selectedMovie} deselectMovie={() => setSelectedMovie({})} />
+          :
+          <MovieList movies={movies} setSelectedMovie={setSelectedMovie} hasSearched={hasSearched} />
+        }
       </div>
     </div>
   );
