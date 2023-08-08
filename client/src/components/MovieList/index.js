@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieList.css';
 
-const MovieList = ({ movies, getMovieByID, isLoading, error, hasSearched }) => {
+const MovieList = ({ movies, getMovieByID, setSelectedMovie, isLoading, error, hasSearched }) => {
 
   if (isLoading) {
       return <div>Loading...</div>;

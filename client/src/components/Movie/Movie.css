@@ -23,6 +23,8 @@
   max-height: 70vh;
 }
 
+
+
 .noimg {
   text-decoration: none;
 }
@@ -44,8 +46,8 @@
 }
 
 .imgdiv img {
-  max-width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .imgAlone {
