@@ -19,7 +19,6 @@
     "openai": "^3.3.0"
   },
   "devDependencies": {
-    "eslint": "^8.46.0",
     "eslint-plugin-react": "^7.33.1"
   }
 }

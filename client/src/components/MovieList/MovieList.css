@@ -1,0 +1,72 @@
+
+.prompt {
+  border-radius: 15px;
+  resize: none;
+  padding: 10px;
+  overflow: hidden;
+  height: 7vh;
+  width: 50vw;
+  padding-bottom: 14vh;
+  text-align: center;
+  overflow-wrap: break-word;
+  margin: 0 auto; 
+}
+
+.list {
+  padding-top: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.movie {
+  padding: 1vw;
+  max-width: 20vw;
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  overflow-wrap: break-word;
+  text-align: center;
+  height: 10vh;
+  width: 100%;
+}
+
+.img {
+  max-width: 100%;
+  height: auto;
+}
+
+.noimg {
+  text-decoration: none;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .prompt {
+    width: 80vw;
+  }
+
+  .movie {
+    max-width: 40vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .prompt {
+    width: 90vw;
+  }
+
+  .movie {
+    max-width: 80vw;
+  }
+}
+
+.tryagain {
+  padding: 20px;
+}

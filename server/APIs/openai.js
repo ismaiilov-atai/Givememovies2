@@ -1,6 +1,5 @@
 require('dotenv').config();
 const API_KEY = process.env.OPENAI_API_KEY;
-
 async function fetchAI(input) {
   const res = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
