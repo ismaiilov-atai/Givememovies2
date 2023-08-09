@@ -45,7 +45,7 @@ function App() {
         { selectedMovie.id ?
           <Movie movie={selectedMovie} deselectMovie={() => setSelectedMovie({})} />
           :
-          <MovieList movies={movies} getMovieByID={getMovieByID} setSelectedMovie={setSelectedMovie} hasSearched={hasSearched} />
+          <MovieList movies={movies} setSelectedMovie={setSelectedMovie} hasSearched={hasSearched} />
 
         }
       </div>

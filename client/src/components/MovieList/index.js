@@ -1,7 +1,7 @@
 import React from 'react';
 import './MovieList.css';
 
-const MovieList = ({ movies, getMovieByID, setSelectedMovie, isLoading, error, hasSearched }) => {
+const MovieList = ({ movies, setSelectedMovie, isLoading, error, hasSearched }) => {
 
   if (isLoading) {
       return <div>Loading...</div>;
@@ -18,10 +18,10 @@ const MovieList = ({ movies, getMovieByID, setSelectedMovie, isLoading, error, h
   return (
       <ul className='list'>
           {movies.map(movie => (
-              <div className='movie' key={movie.id}>
+              <div className='movie' key={movie.id} onClick={() => setSelectedMovie(movie)}>
                   <h3 className='title'>{movie.title}</h3>
                   {movie.poster_path ? (
-                      <img className='img' onClick={() => getMovieByID(movie.id)} src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie poster" />
+                      <img className='img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie poster" />
                   ) : (
                       <p className='noimg'>This movie has no poster image</p>
                   )}
