@@ -1,20 +1,18 @@
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MovieList from '../components/MovieList';
-
-
+import MovieList from '../../components/MovieList';
 
 test('renders Loading... when isLoading is true', () => {
-  jest.mock('../../hooks/useMovies', () => ({
-    useMovies: jest.fn(() => ({
-      movies: [],
-      isLoading: true,
-      error: null
-    }))
-  }));
+  const mockProps = {
+    movies: [],
+    isLoading: true,
+    error: null,
+    setSelectedMovie: jest.fn(),
+    hasSearched: false
+  };
 
-  render(<MovieList />);
+  render(<MovieList {...mockProps} />);
   const loadingElement = screen.getByText(/Loading.../i);
   expect(loadingElement).toBeInTheDocument();
 });

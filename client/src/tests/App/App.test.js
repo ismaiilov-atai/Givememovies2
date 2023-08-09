@@ -1,11 +1,11 @@
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from '../components/App';
+import App from '../../components/App';
 
 test('renders the header correctly', () => {
   render(<App />);
-  const headerElement = screen.getByText(/Give me movies/i);
+  const [headerElement] = screen.getAllByText(/Give me movies/i);
   expect(headerElement).toBeInTheDocument();
 });
 
