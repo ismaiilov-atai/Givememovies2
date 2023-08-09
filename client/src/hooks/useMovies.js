@@ -1,13 +1,27 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ApiService from '../api/movies';
 
 const useMovies = () => {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState({});
+  const [watchListMovies, setWatchListMovies] = useState([]);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hasSearched, setHasSearched] = useState(false);
+  const [showWatchList, setShowWatchList] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const movies = await ApiService.getWatchlist();
+        setWatchListMovies(movies.results);
+      } catch (error) {
+        setError(error);
+      }
+    })();
+  }, [showWatchList]);
 
   async function getMoviesByPrompt(prompt) {
     setIsLoading(true);
@@ -39,7 +53,19 @@ const useMovies = () => {
     }
   }
 
-  return { movies, selectedMovie, getMoviesByPrompt, getMovieByID, isLoading, error, hasSearched, setSelectedMovie };
+  return { 
+    movies, 
+    selectedMovie, 
+    getMoviesByPrompt, 
+    getMovieByID, 
+    isLoading, 
+    error, 
+    hasSearched, 
+    setSelectedMovie, 
+    showWatchList, 
+    setShowWatchList,
+    watchListMovies
+  };
 };
 
 export default useMovies;

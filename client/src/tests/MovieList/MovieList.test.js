@@ -1,8 +1,7 @@
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import MovieList from '../components/MovieList';
-
+import MovieList from '../../components/MovieList/index';
 
 
 test('renders Loading... when isLoading is true', () => {
