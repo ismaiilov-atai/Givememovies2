@@ -7,6 +7,21 @@
   background-color: rgb(222, 222, 205);
 }
 
+.btn {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  border: unset;
+}
+
+.btn:hover {
+  background-color: aliceblue;
+}
 .body {
   background-color: rgb(222, 222, 205);
   display: flex;

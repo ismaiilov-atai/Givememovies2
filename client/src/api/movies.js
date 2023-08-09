@@ -31,6 +31,16 @@ const ApiService = {
     } catch (error) {
       console.error(`Error in getMovieByID: ${error}`);
     }
+  },
+
+  getWatchlist: async () => {
+    try {
+      const response = await fetch(`http://localhost:3001/watchlist`);
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      return error;
+    }
   }
 };
 
