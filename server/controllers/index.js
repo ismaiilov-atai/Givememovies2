@@ -1,4 +1,4 @@
-const {movieFinderByID, movieFinder} = require('../APIs/TMDB');
+const {movieFinderByID, movieFinder, inserWatchlist, retriveWatchlist} = require('../APIs/TMDB');
 
 async function getMovies(ctx) {
   try {
@@ -13,9 +13,27 @@ async function getMovies(ctx) {
 
 async function getMoviesByID(ctx) {
   try {
-    console.log(ctx.request.body.id);
     ctx.body = await movieFinderByID(ctx.request.body.id)
-    console.log(ctx.body);
+    ctx.status = 200;
+  } catch (err) {
+    ctx.status = 500;
+    ctx.body = err;
+  }
+}
+
+async function postWatchlist(ctx) {
+  try {
+    ctx.body = await inserWatchlist(ctx.request.body.movie_id);
+    ctx.status = 200;
+  } catch (err) {
+    ctx.status = 500;
+    ctx.body = err;
+  }
+}
+
+async function getWatchlist(ctx) {
+  try {
+    ctx.body = await retriveWatchlist();
     ctx.status = 200;
   } catch (err) {
     ctx.status = 500;
@@ -24,4 +42,7 @@ async function getMoviesByID(ctx) {
 }
 
 
-module.exports = {getMovies, getMoviesByID};
+
+
+
+module.exports = {getMovies, getMoviesByID, postWatchlist, getWatchlist};
