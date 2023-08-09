@@ -87,13 +87,7 @@ async function inserWatchlist(movie_id) {
 
 async function retriveWatchlist() {
   try {
-    const response = await fetch(`${base_url}/account/${process.env.TMDB_PERSON_ID}/watchlist/movies?language=en-US&page=1&sort_by=created_at.asc`, {
-      method: 'GET',
-      headers: {
-        accept: 'application/json',
-        Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxMjliZjhkM2NiYTlhYjFkYWE1Mzg0MDgxMDU4NjNkMiIsInN1YiI6IjY0Y2JlM2Y4ZTFmYWVkMDBhZTBkZjNlYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.IYwnGM2gM3W-ho4PKVuzewPKAAgC5gkRVTB_lLeNYqc'
-      }
-    });
+    const response = await fetch(`${base_url}/account/${process.env.TMDB_PERSON_ID}/watchlist/movies?language=en-US&page=1&sort_by=created_at.asc`, options);
     const data = await response.json();
     return data;
   } catch (error) {
