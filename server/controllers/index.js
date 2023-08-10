@@ -1,4 +1,4 @@
-const {movieFinderByID, movieFinder, inserWatchlist, retriveWatchlist} = require('../APIs/TMDB');
+const {movieFinderByID, movieFinder, insertWatchlist, retriveWatchlist} = require('../APIs/TMDB');
 
 async function getMovies(ctx) {
   try {
@@ -23,7 +23,7 @@ async function getMoviesByID(ctx) {
 
 async function postWatchlist(ctx) {
   try {
-    ctx.body = await inserWatchlist(ctx.request.body.movie_id);
+    ctx.body = await insertWatchlist(ctx.request.body.movie_id);
     ctx.status = 200;
   } catch (err) {
     ctx.status = 500;

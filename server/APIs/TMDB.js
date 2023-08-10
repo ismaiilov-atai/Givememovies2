@@ -27,7 +27,7 @@ async function movieFinder(prompt) {
 
     const response = await fetch(`${inner_base_url}?with_runtime.lte=${runtime}&with_genres=${genreID}&with_people=${actorID},${directorID}`, options);
     const movies = await response.json();
-    return movies.results;  
+    return movies.results;
   } catch (error) {
     return error;
   }
@@ -52,7 +52,7 @@ async function genreIDFinder(genreName) {
       if (genre.name === genreName) return genre.id;
     }
   } catch (error) {
-   return error; 
+   return error;
   }
 }
 
@@ -67,7 +67,7 @@ async function personIDFinder(personName) {
   }
 }
 
-async function inserWatchlist(movie_id) {
+async function insertWatchlist(movie_id) {
   try {
     const response = await fetch(`${base_url}/account/${process.env.TMDB_PERSON_ID}/watchlist`, {
       method: 'POST',
@@ -100,4 +100,4 @@ async function retriveWatchlist() {
 
 
 
-module.exports = { movieFinder, movieFinderByID, inserWatchlist, retriveWatchlist };
+module.exports = { movieFinder, movieFinderByID, insertWatchlist, retriveWatchlist };
