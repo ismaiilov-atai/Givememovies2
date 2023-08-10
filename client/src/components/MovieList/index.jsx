@@ -3,7 +3,10 @@ import ApiService from '../../api/movies';
 import React, { useState, useEffect } from 'react';
 import './MovieList.css';
 
+
 const MovieList = ({ showWatchList, movies, setSelectedMovie, isLoading, error, hasSearched }) => {
+
+    const [hiddenMovies, setHiddenMovies] = useState([]);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -22,13 +25,24 @@ const MovieList = ({ showWatchList, movies, setSelectedMovie, isLoading, error, 
             {movies.map(movie => (
                 <div className='movie' key={movie.id} onClick={() => setSelectedMovie(movie)}>
                     {!showWatchList && <button
-                            className="watch-list-btn"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                ApiService.handleWatchList(movie);
-                            }}>
-                            Watch Later
-                        </button>
+
+                        className="watch-list-btn"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            ApiService.handleWatchList(movie);
+
+                            const movieElem = e.currentTarget.closest('.movie');
+                            const imgElem = movieElem.querySelector('.img');
+                            imgElem.classList.add('shrink-to-zero');
+
+                            if (!hiddenMovies.includes(movie.id)) {
+                                setTimeout(() => {
+                                    setHiddenMovies([...hiddenMovies, movie.id]);
+                                }, 500);
+                            }
+                        }}>
+                        Watch Later
+                    </button>
                     }
                     <h3 className='title'>{movie.title}</h3>
                     {movie.poster_path ? (
