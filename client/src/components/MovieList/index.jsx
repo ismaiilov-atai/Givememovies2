@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import './MovieList.css';
 
 const MovieList = ({ movies, setSelectedMovie, isLoading, error, hasSearched }) => {
+    const [hiddenMovies, setHiddenMovies] = useState([]);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -20,12 +21,22 @@ const MovieList = ({ movies, setSelectedMovie, isLoading, error, hasSearched }) 
     return (
         <ul className='list'>
             {movies.map(movie => (
-                <div className='movie' key={movie.id} onClick={() => setSelectedMovie(movie)}>
+                <div className={`movie ${hiddenMovies.includes(movie.id) ? 'hidden' : ''}`} key={movie.id} onClick={() => setSelectedMovie(movie)}>
                         <button
                             className="watch-list-btn"
                             onClick={(e) => {
                                 e.stopPropagation();
                                 ApiService.handleWatchList(movie);
+
+                                const movieElem = e.currentTarget.closest('.movie');
+                                const imgElem = movieElem.querySelector('.img');
+                                imgElem.classList.add('shrink-to-zero');
+
+                                if (!hiddenMovies.includes(movie.id)) {
+                                    setTimeout(() => {
+                                        setHiddenMovies([...hiddenMovies, movie.id]);
+                                    }, 500);
+                                }
                             }}>
                             Watch Later
                         </button>
