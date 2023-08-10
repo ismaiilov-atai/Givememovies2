@@ -3,7 +3,7 @@ import ApiService from '../../api/movies';
 import React, { useState, useEffect } from 'react';
 import './MovieList.css';
 
-const MovieList = ({ movies, setSelectedMovie, isLoading, error, hasSearched }) => {
+const MovieList = ({ showWatchList, movies, setSelectedMovie, isLoading, error, hasSearched }) => {
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -21,7 +21,7 @@ const MovieList = ({ movies, setSelectedMovie, isLoading, error, hasSearched }) 
         <ul className='list'>
             {movies.map(movie => (
                 <div className='movie' key={movie.id} onClick={() => setSelectedMovie(movie)}>
-                        <button
+                    {!showWatchList && <button
                             className="watch-list-btn"
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -29,6 +29,7 @@ const MovieList = ({ movies, setSelectedMovie, isLoading, error, hasSearched }) 
                             }}>
                             Watch Later
                         </button>
+                    }
                     <h3 className='title'>{movie.title}</h3>
                     {movie.poster_path ? (
                         <img className='img' src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt="movie poster" />

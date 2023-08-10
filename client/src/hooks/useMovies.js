@@ -57,7 +57,6 @@ const useMovies = () => {
     movies, 
     selectedMovie, 
     getMoviesByPrompt, 
-    getMovieByID, 
     isLoading, 
     error, 
     hasSearched, 

@@ -13,7 +13,6 @@ function App() {
     movies,
     selectedMovie,
     getMoviesByPrompt,
-    getMovieByID,
     setSelectedMovie,
     showWatchList, 
     setShowWatchList,
@@ -35,18 +34,20 @@ function App() {
   return (
     <div className='App'>
       <h1 className='header'>Give me movies</h1>
+
       <button className="btn"
       onClick={() => setShowWatchList(prev => !prev)}
       ><i className="fa fa-list" aria-hidden="true"></i>
-      Watch list
+        {showWatchList ? 'Search movie' : `Watch list`}
       </button>
+
       <div className='body'>
         {
          showWatchList ?
           <>
             {
               watchListMovies && selectedMovie.id ? <Movie movie={selectedMovie} deselectMovie={() => setSelectedMovie({})} /> :
-              <MovieList movies={watchListMovies} setSelectedMovie={setSelectedMovie} hasSearched={hasSearched} />
+                  <MovieList showWatchList={showWatchList} movies={watchListMovies} setSelectedMovie={setSelectedMovie} hasSearched={hasSearched} />
             }
           </>
         :
