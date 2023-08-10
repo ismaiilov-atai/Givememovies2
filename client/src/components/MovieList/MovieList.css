@@ -1,19 +1,8 @@
 
-.prompt {
-  border-radius: 15px;
-  resize: none;
-  padding: 10px;
-  overflow: hidden;
-  height: 7vh;
-  width: 50vw;
-  padding-bottom: 14vh;
-  text-align: center;
-  overflow-wrap: break-word;
-  margin: 0 auto; 
-}
+
 
 .list {
-  padding-top: 15vh;
+  padding-top: 10vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -70,3 +59,55 @@
 .tryagain {
   padding: 20px;
 }
+
+
+.movie:hover .img {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.watch-list-btn {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  background-color: rgba(0,0,0,0.6);
+  color: beige;
+  border: none;
+  padding: 5px 0;
+  font-size: 1rem;
+  animation: blink 1s infinite;
+  display: none;
+  cursor: pointer;
+}
+
+@keyframes blink {
+  0% {opacity: 1;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+
+
+.movie:hover .watch-list-btn {
+  display: block;
+}
+
+.img-container:hover .watch-list-btn {
+  display: block;
+}
+
+@keyframes shrink {
+  to {
+    transform: scale(0);
+  }
+}
+
+.shrink-to-zero {
+  animation: shrink 0.5s forwards;
+}
+
+.hidden {
+  display: none;
+}
+

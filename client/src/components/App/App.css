@@ -7,16 +7,50 @@
   background-color: rgb(222, 222, 205);
 }
 
+.btn {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  border: unset;
+}
+
+.btn:hover {
+  background-color: aliceblue;
+}
 .body {
   background-color: rgb(222, 222, 205);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .header {
-  padding: 7vh;
+  padding: 10vh;
 }
 
 .summary {
-  margin: 0 5vw 0 5vw;
+  margin: 0 auto;
   font-size: 17px;
-  padding-bottom: 14vh;
+  padding-bottom: 15vh;
+  width: 50vw;
+  text-align: justify;
+  line-height: 2;
+}
+
+.prompt {
+  border-radius: 15px;
+  resize: none;
+  padding: 10px;
+  overflow: hidden;
+  height: 10vh;
+  width: 50vw;
+  padding-bottom: 10vh;
+  text-align: center;
+  overflow-wrap: break-word;
+  margin: 0 auto;
 }

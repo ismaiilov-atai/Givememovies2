@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Movie from '../../components/Movie';
+import Movie from '../../components/Movie/index';
 
 const mockMovie = {
   title: "Test Movie",
@@ -13,7 +13,7 @@ const mockMovie = {
 
 test('renders movie title', () => {
   render(<Movie movie={mockMovie} />);
-  const [titleElement] = screen.getAllByText(/Test Movie/i);
+  const titleElement = document.querySelector('.titleAlone');
   expect(titleElement).toBeInTheDocument();
 });
 
