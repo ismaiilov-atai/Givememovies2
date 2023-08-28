@@ -40,9 +40,9 @@ Give me movies is a website that uses AI, more specifically Natural Language Pro
   
   The prompts from the user are sent to the OpenAI API, which handles the prompt and returns an array of the form [Lenght(in minutes), Actor, Director, Genre]. Then this array is used to fetch movies from the TMDB API.
   
-    ```
+    
       I want to watch a rom-com which is less than 2 hours long and with Tom Hanks in it" in the box!
-    ```
+    
 
 
 
