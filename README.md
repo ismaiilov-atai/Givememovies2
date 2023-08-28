@@ -13,12 +13,12 @@ Give me movies is a website that uses AI, more specifically Natural Language Pro
 
 2. Obtain API keys
     
-    -  (OpenAI API key)[https://chat.openai.com/]
+    -  [OpenAI API key](https://chat.openai.com/)
     
-    -  (TMDB API key)[https://www.themoviedb.org/]
+    -  [TMDB API key](https://www.themoviedb.org/)
 
 
-4. Navigate to **./client** || **./server** and run next command:
+4. Navigate to  **./client**    ||   **./server**  and run next command:
 
   ```
     npm install
@@ -39,8 +39,8 @@ Give me movies is a website that uses AI, more specifically Natural Language Pro
 # Input Example:
   
   The prompts from the user are sent to the OpenAI API, which handles the prompt and returns an array of the form [Lenght(in minutes), Actor, Director, Genre]. Then this array is used to fetch movies from the TMDB API.
-    
     provide similar followed format:
+    
     ```
       I want to watch a rom-com which is less than 2 hours long and with Tom Hanks in it" in the box!
     ```
